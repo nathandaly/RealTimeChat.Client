@@ -1,0 +1,17 @@
+.message-item {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    /*border-bottom: 1px dotted #B3A9A9;*/
+}
+
+.message-item.left .chat-body {
+    margin-left: 60px;
+}
+.message-item.right .chat-body {
+    margin-right: 60px;
+}
+
+.message-item .chat-body p {
+    margin: 0;
+    color: #777777;
+}

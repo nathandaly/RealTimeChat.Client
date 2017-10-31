@@ -1,0 +1,17 @@
+.footer.navbar-fixed-bottom {
+    padding: 0 40px 10px 0;
+    right: auto;
+    left: auto;
+    background-color: #fff;
+}
+
+#btn-input {
+    border: #717274 solid 2px;
+    border-right: none;
+}
+
+button#btn-chat {
+    border-color: #717274;
+    border-width: 2px;
+    height: 46px;
+}

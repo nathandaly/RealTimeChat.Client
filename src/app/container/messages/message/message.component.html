@@ -1,0 +1,15 @@
+<div *ngFor="let message of messages" class="message-item left clearfix" #scrollMe>
+  <span class="chat-img pull-left">
+    <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar"/>
+  </span>
+  <div class="chat-body clearfix">
+      <div class="header">
+          <strong class="primary-font">{{ message.user }}</strong> <small class="text-muted">
+              <span class="glyphicon glyphicon-time"></span> 12 mins ago</small>
+      </div>
+      <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+          dolor, quis ullamcorper ligula sodales.
+      </p>
+  </div>
+</div>

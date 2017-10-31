@@ -1,0 +1,13 @@
+<h4>
+    Channels
+    <span class="menu-section-header-btn">
+        <button type="button" class="btn btn-success btn-sm btn-circle" (click)="addChannel($event, item)">
+          <i class="glyphicon glyphicon-plus"></i>
+        </button>
+    </span>
+  </h4>
+  <ul class="nav nav-sidebar">
+    <li  *ngFor="let channel of channels">
+        <a href="#">#{{ channel.name }}</a>
+    <li>
+  </ul>

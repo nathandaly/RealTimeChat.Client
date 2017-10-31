@@ -1,0 +1,13 @@
+<h4>
+    Direct Messages
+    <span class="menu-section-header-btn">
+        <button type="button" class="btn btn-primary btn-sm btn-circle" (click)="directMessage($event, item)">
+          <i class="glyphicon glyphicon-plus"></i>
+        </button>
+    </span>
+  </h4> 
+  <ul class="nav nav-sidebar">
+    <li *ngFor="let activeDialog of messages">
+      <a href="">{{ activeDialog }}</a>
+    </li>
+  </ul>
