@@ -3,7 +3,7 @@ import { User } from './User';
 export default class Message {
     user: User;
     content: any;
-    type: null;
+    contentType: null;
     timestamp: null;
 
     public constructor(init ?: Partial<Message>) {
