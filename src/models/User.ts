@@ -1,4 +1,4 @@
-import { ActivityStatus } from './../app/utils/enums/ActivityStatus';
+import { ActivityStatus } from '../utils/enums/ActivityStatus';
 
 export class User {
     username: string;

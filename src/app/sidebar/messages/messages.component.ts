@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
-import { ActivityStatus } from './../../utils/enums/ActivityStatus';
+import { ActivityStatus } from '../../../utils/enums/ActivityStatus';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import Message from '../../../models/Message';
