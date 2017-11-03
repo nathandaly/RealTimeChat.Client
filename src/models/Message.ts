@@ -2,7 +2,7 @@ import { User } from './User';
 
 export default class Message {
     user: User;
-    content: string;
+    content: any;
     type: null;
     timestamp: null;
 
