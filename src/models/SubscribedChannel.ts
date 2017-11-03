@@ -1,4 +1,8 @@
+import Channel from './Channel';
+import { User } from './User';
+
 export class SubscribedChannel {
-    user: null;
-    channel: null;
+    user: User;
+    channel: Channel;
+    timestamp: null;
 }
