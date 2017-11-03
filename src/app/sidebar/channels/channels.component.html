@@ -1,9 +1,7 @@
 <h4>
     Channels
     <span class="menu-section-header-btn">
-        <button type="button" class="btn btn-success btn-sm btn-circle" (click)="addChannel($event, item)">
-          <i class="glyphicon glyphicon-plus"></i>
-        </button>
+        <a ngRef="" role="button" (click)="openAddChannelModal(template)"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
     </span>
   </h4>
   <ul class="nav nav-sidebar">
@@ -11,3 +9,26 @@
         <a href="#">#{{ channel.name }}</a>
     <li>
   </ul>
+
+  <!-- Add channel modal -->
+  <template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Create new channel</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Channel name:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Channel description:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+  </template>
+    

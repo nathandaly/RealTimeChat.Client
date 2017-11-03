@@ -141,3 +141,22 @@ body {
     border-radius: 35px;
   }
   
+  /*
+   * Icons
+   */
+   
+  .icon-ONLINE {
+    color: rgb(255, 142, 200);
+  }
+
+  .icon-OFFLINE {
+    color: black;
+  }
+
+  .icon-AWAY {
+    color: orange;
+  }
+
+  i.fa.fa-plus-square-o {
+    color: #777777;
+  }

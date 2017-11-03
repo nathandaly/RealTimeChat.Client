@@ -1,13 +1,32 @@
 <h4>
     Direct Messages
     <span class="menu-section-header-btn">
-        <button type="button" class="btn btn-primary btn-sm btn-circle" (click)="directMessage($event, item)">
-          <i class="glyphicon glyphicon-plus"></i>
-        </button>
+        <a ngRef="" role="button" (click)="openDirectMessageModal(template)"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a>
     </span>
   </h4> 
   <ul class="nav nav-sidebar">
     <li *ngFor="let activeDialog of messages">
-      <a href="">{{ activeDialog }}</a>
+      <a href="">
+        <i class="fa {{ activeDialog.user.status === 'OFFLINE' ? 'fa-circle-thin' : activeDialog.user.status === 'AWAY' ? 'fa-clock-o' : 'fa-circle' }} icon-{{activeDialog.user.status}}" aria-hidden="true"></i>
+        {{ activeDialog.user.username }}
+      </a>
     </li>
   </ul>
+
+<!-- Direct message modal -->
+<template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Direct message</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="recipient-name" class="control-label">Recipient username:</label>
+          <input type="text" class="form-control" id="recipient-name">
+        </div>
+      </form>
+    </div>
+</template>
