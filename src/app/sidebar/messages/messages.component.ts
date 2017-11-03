@@ -21,12 +21,19 @@ export class SidebarMessagesComponent implements OnInit {
     const statusArray = [ActivityStatus.OFFLINE, ActivityStatus.ONLINE, ActivityStatus.AWAY];
 
     for (let i = 0; i < 5; i++) {
+      const randomName = random();
+
       const message = new Message({
         user: new User({
-          username: random(),
-          status: statusArray[Math.floor(Math.random() * statusArray.length)]
+          username: randomName,
+          name: randomName,
+          status: statusArray[Math.floor(Math.random() * statusArray.length)],
+          created: Date.now(),
+          modified: Date.now()
         }),
-        text: 'Testing...'
+        content: 'Testing...',
+        contentType: 'text/html',
+        timestamp: Date.now()
       });
 
       this.messages.push(message);

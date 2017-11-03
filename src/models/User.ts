@@ -4,8 +4,8 @@ export class User {
     username: string;
     name: string;
     status: ActivityStatus;
-    created: null;
-    modified: null;
+    created: number;
+    modified: number;
 
     public constructor(init ?: User) {
         Object.assign(this, init);
