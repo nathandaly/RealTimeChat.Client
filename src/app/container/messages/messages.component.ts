@@ -9,7 +9,6 @@ import { ActivityStatus } from './../../../utils/enums/ActivityStatus';
 import Message from '../../../models/Message';
 import { MessageService } from './../../message.service';
 import { Observable } from 'rxjs/Observable';
-import ScrollHelper from '../../../helpers/ScrollHelper';
 import { User } from './../../../models/User';
 import random from 'random-name';
 

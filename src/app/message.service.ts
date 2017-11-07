@@ -25,6 +25,10 @@ export class MessageService {
     return body;
   }
 
+  /**
+   * Get list of messages and return them as an Observable.
+   * @returns Observable<Messages[]>
+   */
   getMessages(): Observable<Message[]> {
     const messages = this.http.get<Message[]>(this.messagesUrl)
       .pipe(
@@ -32,5 +36,15 @@ export class MessageService {
       );
 
     return messages;
+  }
+
+  /**
+   * Filter messages for a single message by ID and return as an Observable.
+   * @param id
+   * @returns Observable<Messages>
+   */
+  getMessage(id: number): Observable<Message> {
+    return this.getMessages()
+       .map(messages => messages.filter(message => message.id === id)[0]);
   }
 }
