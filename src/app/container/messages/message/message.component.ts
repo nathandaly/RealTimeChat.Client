@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import Message from '../../../../models/Message';
 
@@ -7,22 +7,6 @@ import Message from '../../../../models/Message';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessagesMessageComponent implements OnInit, AfterViewInit, AfterViewChecked {
-  @ViewChild('scrollMe') elRef: ElementRef;
-  @Input() messages: Message[];
-
-  constructor() {
-    console.log('data', this.messages);
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.elRef.nativeElement.scrollIntoView();
-  }
-
-  ngAfterViewChecked() {
-    this.elRef.nativeElement.scrollIntoView();
-  }
+export class MessagesMessageComponent {
+  @Input() message: Message;
 }

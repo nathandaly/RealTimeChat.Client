@@ -1,7 +1,14 @@
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/scan';
+
 import { Component, OnInit } from '@angular/core';
 
 import { ActivityStatus } from './../../../utils/enums/ActivityStatus';
 import Message from '../../../models/Message';
+import { MessageService } from './../../message.service';
+import { Observable } from 'rxjs/Observable';
 import ScrollHelper from '../../../helpers/ScrollHelper';
 import { User } from './../../../models/User';
 import random from 'random-name';
@@ -12,34 +19,20 @@ import random from 'random-name';
   styleUrls: ['./messages.component.css']
 })
 export class ContainerMessagesComponent implements OnInit {
+  errorMessage: string;
   messages: Message[];
 
-  constructor() {
-    this.messages = [];
-    const statusArray = [ActivityStatus.OFFLINE, ActivityStatus.ONLINE, ActivityStatus.AWAY];
+  constructor(private messageService: MessageService) {}
 
-    for (let i = 0; i < 200; i++ ) {
-      const randomName = random();
-
-      const message = new Message({
-        user: new User({
-          username: randomName,
-          name: randomName,
-          status: statusArray[Math.floor(Math.random() * statusArray.length)],
-          created: Date.now(),
-          modified: Date.now()
-        }),
-        content: 'Testing...',
-        contentType: 'text/html',
-        timestamp: Date.now()
-      });
-
-      this.messages.push(message);
-    }
-
-    console.log('messages', this.messages);
+  getMessages() {
+    this.messageService.getMessages()
+    .subscribe(
+      messages => this.messages = messages,
+      error => this.errorMessage = <any>error
+    );
   }
 
   ngOnInit() {
+    this.getMessages();
   }
 }
