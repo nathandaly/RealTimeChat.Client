@@ -6,9 +6,8 @@ import 'rxjs/add/operator/scan';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 
-import { InMemoryDataService } from './in-memory-data.service';
 import { Injectable } from '@angular/core';
-import Message from '../models/Message';
+import Message from './message.model';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()

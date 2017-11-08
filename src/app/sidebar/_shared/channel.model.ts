@@ -1,4 +1,5 @@
 export default class Channel {
+    id: number;
     name: string;
     description: string;
     created: null;

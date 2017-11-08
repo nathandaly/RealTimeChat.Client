@@ -1,11 +1,13 @@
-import { ActivityStatus } from '../utils/enums/ActivityStatus';
+import { ActivityStatus } from './activity-status.enum';
+import Channel from '../../sidebar/_shared/channel.model';
 
-export class User {
+export default class User {
     username: string;
     name: string;
     status: ActivityStatus;
     created: number;
     modified: number;
+    channels: Channel[];
 
     public constructor(init ?: User) {
         Object.assign(this, init);

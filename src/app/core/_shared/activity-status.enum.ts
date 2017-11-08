@@ -3,3 +3,4 @@ export enum ActivityStatus {
     ONLINE = <any>'ONLINE',
     AWAY = <any>'AWAY'
 }
+

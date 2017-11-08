@@ -2,7 +2,8 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import Channel from '../../../models/Channel';
+import Channel from '../_shared/channel.model';
+import { ChannelService } from './../_shared/channel.service';
 import randomWords from 'random-words';
 
 @Component({
@@ -11,19 +12,22 @@ import randomWords from 'random-words';
   styleUrls: ['./channels.component.css']
 })
 export class SidebarChannelsComponent implements OnInit {
+  errorMessage: string;
   channels: Channel[];
   public bsModalRef: BsModalRef;
 
-  constructor(private modalService: BsModalService) {
-    // Build array containing channels and the channels must contain atleast one subscriber (creator?).
-    this.channels = [];
+  constructor(private channelService: ChannelService, private modalService: BsModalService) {}
 
-    for (let i = 0; i < 5; i++) {
-      this.channels.push(new Channel({name: randomWords(1[0]), description: 'Some channel'}));
-    }
+  getChannels() {
+    this.channelService.getChannels()
+    .subscribe(
+      messages => this.channels = messages,
+      error => this.errorMessage = <any>error
+    );
   }
 
   ngOnInit() {
+    this.getChannels();
   }
 
   public openAddChannelModal(template: TemplateRef<any>) {

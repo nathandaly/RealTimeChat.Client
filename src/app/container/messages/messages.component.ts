@@ -5,11 +5,10 @@ import 'rxjs/add/operator/scan';
 
 import { Component, OnInit } from '@angular/core';
 
-import { ActivityStatus } from './../../../utils/enums/ActivityStatus';
-import Message from '../../../models/Message';
-import { MessageService } from './../../message.service';
+import Message from '../../core/_shared/message.model';
+import { MessageService } from '../../core/_shared/message.service';
 import { Observable } from 'rxjs/Observable';
-import { User } from './../../../models/User';
+import User from '../../core/_shared/user.model';
 import random from 'random-name';
 
 @Component({
