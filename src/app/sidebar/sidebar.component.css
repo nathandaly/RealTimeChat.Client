@@ -1,11 +1,11 @@
 nav.sidebar {
     padding: 0 20px 20px 20px;
     background-color: hsl(0, 0%, 18%);
-    color: #eee;
+    color: #afafb4;
 }
 
-.sidebar a {
-    color: #eee!important;
+p.user-identity {
+    font-size: 14px;
 }
 
 h4 .menu-section-header-btn { display: inline-block; }
