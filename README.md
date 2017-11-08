@@ -2,7 +2,7 @@
 
 ## Dependenices
 
-Run `yarn install` to install the dependencies for this projectgit status.
+Run `yarn install` to install the dependencies for this project.
 
 ## Development server
 
@@ -27,3 +27,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+### Todo
+
+- [ ] HR seperating any new message sent past 12:00am the following day
+- [ ] Direct message autocomplete user
+- [ ] Create channel persisting
+- [ ] Direct message persisting
+- [ ] User away/timeout (away return to online with any interactions)
+- [ ] message timestamps
+- [ ] Notifications
+- [ ] Swap in memory database to http requests to the WebAPI
