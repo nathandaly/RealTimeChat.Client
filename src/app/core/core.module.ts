@@ -1,4 +1,3 @@
-import { ChannelService } from './_shared/channel.service';
 import { CommonModule } from '@angular/common';
 import { MessageService } from './_shared/message.service';
 import { NgModule } from '@angular/core';
@@ -9,8 +8,7 @@ import { NgModule } from '@angular/core';
   ],
   declarations: [],
   providers: [
-    MessageService,
-    ChannelService
+    MessageService
   ]
 })
 export class CoreModule { }

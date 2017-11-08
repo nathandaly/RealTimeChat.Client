@@ -1,5 +1,6 @@
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChannelService } from './sidebar/_shared/channel.service';
 import { ContainerModule } from './container/container.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -30,7 +31,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
     SidebarModule
   ],
   providers: [
-    InMemoryDataService
+    InMemoryDataService,
+    ChannelService
   ],
   bootstrap: [AppComponent]
 })
