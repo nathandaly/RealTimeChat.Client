@@ -1,10 +1,20 @@
 h4 > span { float: right; }
 
+.nav > li {
+    font-family: 'Lato',sans-serif;
+}
+
 .nav >li > a {
     color: #afafb4;
     font-size: 16px;
+    padding: 5px 15px;
 }
 
 .nav >li > a:focus, .nav > li > a:hover {
-    background-color: #484848;
+    background-color: #4A5664;
+}
+
+.nav > li > a:active, .nav > li > a:focus {
+    background-color: #5294E2;
+    color: #fff;
 }
