@@ -1,10 +1,11 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
-import { ActivityStatus } from '../../../utils/enums/ActivityStatus';
+import { ActivityStatus } from '../../core/_shared/activity-status.enum';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import Message from '../../../models/Message';
-import { User } from '../../../models/User';
+import Channel from '../_shared/channel.model';
+import Message from '../../core/_shared/message.model';
+import User from '../../core/_shared/user.model';
 import random from 'random-name';
 
 @Component({
@@ -14,6 +15,7 @@ import random from 'random-name';
 })
 export class SidebarMessagesComponent implements OnInit {
   messages: Message[];
+  channels: Channel[];
   public bsModalRef: BsModalRef;
 
   constructor(private modalService: BsModalService) {
@@ -29,7 +31,8 @@ export class SidebarMessagesComponent implements OnInit {
           name: randomName,
           status: statusArray[Math.floor(Math.random() * statusArray.length)],
           created: Date.now(),
-          modified: Date.now()
+          modified: Date.now(),
+          channels: this.channels
         }),
         content: 'Testing...',
         contentType: 'text/html',

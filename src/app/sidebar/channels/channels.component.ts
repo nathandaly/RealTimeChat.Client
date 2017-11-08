@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import Channel from '../../../models/Channel';
+import Channel from '../_shared/channel.model';
 import randomWords from 'random-words';
 
 @Component({

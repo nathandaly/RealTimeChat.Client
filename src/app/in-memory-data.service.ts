@@ -1,7 +1,5 @@
-import { ActivityStatus } from '../utils/enums/ActivityStatus';
+import { ActivityStatus } from './core/_shared/activity-status.enum';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import Message from '../models/Message';
-import { User } from '../models/User';
 import random from 'random-name';
 
 export class InMemoryDataService implements InMemoryDbService {
