@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ChannelService } from './sidebar/_shared/channel.service';
 import { ContainerModule } from './container/container.module';
 import { CoreModule } from './core/core.module';
+import { FormsModule } from '@angular/forms';
+import { GlobalErrorHandlerService } from './core/_shared/global-error-handler.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -17,6 +19,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -32,7 +35,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
   ],
   providers: [
     InMemoryDataService,
-    ChannelService
+    ChannelService,
+    GlobalErrorHandlerService
   ],
   bootstrap: [AppComponent]
 })

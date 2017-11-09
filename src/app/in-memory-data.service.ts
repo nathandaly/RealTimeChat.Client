@@ -34,6 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
       const statusArray = [ActivityStatus.OFFLINE, ActivityStatus.ONLINE, ActivityStatus.AWAY];
 
       users.push({
+        id: i,
         username: randomName,
         name: randomName,
         status: statusArray[Math.floor(Math.random() * statusArray.length)],
@@ -52,11 +53,13 @@ export class InMemoryDataService implements InMemoryDbService {
     const channels = [];
     const channelNames = ['general', 'code', 'design', 'product', 'random', 'tunes'];
 
-    channelNames.map(val => channels.push({
+    channelNames.map((val, index) => channels.push({
+      id: index,
       name: val,
       description: 'This channel is for ' + val + ' purposes',
       created: Date.now(),
-      modified: Date.now()
+      modified: Date.now(),
+      private: Math.random() >= 0.5
     }));
 
     return channels;
@@ -73,6 +76,7 @@ export class InMemoryDataService implements InMemoryDbService {
       const randomName = random();
       const randomUser = this.users[Math.floor(Math.random() * this.users.length)];
       const message = {
+        id: i,
         user: randomUser,
         content: 'Testing...',
         contentType: 'text/html',

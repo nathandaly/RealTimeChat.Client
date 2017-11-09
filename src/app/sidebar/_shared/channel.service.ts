@@ -3,18 +3,23 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/scan';
 
+import { ErrorHandler, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 
 import Channel from '../../sidebar/_shared/channel.model';
-import { Injectable } from '@angular/core';
+import { GlobalErrorHandlerService } from './../../core/_shared/global-error-handler.service';
 import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class ChannelService {
   private channelUrl: string;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private globalErrorHandler: GlobalErrorHandlerService
+  ) {
     this.channelUrl = 'app/channels';
   }
 
@@ -29,12 +34,11 @@ export class ChannelService {
    * @returns Observable<Channel[]>
    */
   getChannels(): Observable<Channel[]> {
-    const channels = this.http.get<Channel[]>(this.channelUrl)
+    return this.http.get<Channel[]>(this.channelUrl)
       .pipe(
-        tap(heroes => console.log(`Fetched channels`))
+        tap((chan: Channel[]) => console.log(`Fetched channels`)),
+        catchError(this.globalErrorHandler.handleError<Channel[]>('getChannels'))
       );
-
-    return channels;
   }
 
   /**
@@ -44,6 +48,21 @@ export class ChannelService {
    */
   getChannel(id: number): Observable<Channel> {
     return this.getChannels()
-       .map(channels => channels.filter(channel => channel.id === id)[0]);
+       .map(channels => channels.filter(channel => channel.id === id)[0]).pipe(
+        tap((chan: Channel) => console.log(`fetched hero w/ id=${chan.id}`)),
+        catchError(this.globalErrorHandler.handleError<Channel>('getChannel'))
+      );
+  }
+
+  /**
+   * Add a channel.
+   * @param channel
+   * @returns Observable<Channel>
+   */
+  addChannel(channel: Channel): Observable<Channel> {
+    return this.http.post<Channel>(this.channelUrl, channel).pipe(
+      tap((chan: Channel) => console.log(`added hero w/ id=${chan.id}`)),
+      catchError(this.globalErrorHandler.handleError<Channel>('addChannel'))
+    );
   }
 }

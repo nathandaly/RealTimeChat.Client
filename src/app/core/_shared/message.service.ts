@@ -31,7 +31,7 @@ export class MessageService {
   getMessages(): Observable<Message[]> {
     const messages = this.http.get<Message[]>(this.messagesUrl)
       .pipe(
-        tap(heroes => console.log(`Fetched messahes`))
+        tap(heroes => console.log(`Fetched messages`))
       );
 
     return messages;

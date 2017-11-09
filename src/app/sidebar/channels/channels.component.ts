@@ -18,7 +18,7 @@ export class SidebarChannelsComponent implements OnInit {
 
   constructor(private channelService: ChannelService, private modalService: BsModalService) {}
 
-  getChannels() {
+  public getChannels() {
     this.channelService.getChannels()
     .subscribe(
       messages => this.channels = messages,
@@ -30,7 +30,18 @@ export class SidebarChannelsComponent implements OnInit {
     this.getChannels();
   }
 
-  public openAddChannelModal(template: TemplateRef<any>) {
+  openAddChannelModal(template: TemplateRef<any>) {
     this.bsModalRef = this.modalService.show(template, {backdrop: false});
+  }
+
+  onAddChannel(chan: Channel): void {
+    if (!chan) {
+      return;
+    }
+
+    this.channelService.addChannel(chan)
+      .subscribe(channel => {
+        this.channels.push(channel);
+      });
   }
 }

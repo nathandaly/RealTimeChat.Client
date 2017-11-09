@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Create a <span a [hidden]="!model.locked">private</span> channel</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form #channelForm="ngForm">
+        <div class="form-group">
+            <div *ngIf="model.locked === false" class="alert alert-info">Anyone in your workspace can view and join this channel.</div>
+            <div *ngIf="model.locked === true" class="alert alert-info">This channel can only be joined or viewed by invite.</div>
+            <input type="checkbox" id="switch3" switch="none"
+                [(ngModel)]="model.locked"
+                name="locked"
+            /> 
+            <label for="switch3" data-true-label="Public" data-false-label="Private"></label>     
+        </div>
+        <div [ngClass]="{'form-group': true, 'has-feedback': true, 'has-error': name.invalid && (name.dirty || name.touched)}">
+            <label for="recipient-name" class="control-label">Channel name</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i [ngClass]="{'fa': true, 'fa-fw': true, 'fa-lock': model.locked, 'fa-hashtag': !model.locked}"></i></span>
+                <input type="text" class="form-control" id="channel-name"
+                    required
+                    minlength="3"
+                    [(ngModel)]="model.name"
+                    #name="ngModel"
+                    name="name"
+                    placeholder="e.g. code"
+                >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message-text" class="control-label">Channel description (optional)</label>
+            <textarea class="form-control" id="channel-description"
+                [(ngModel)]="model.description"
+                name="description">
+            </textarea>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button (click)="addChannel();" type="button" class="btn btn-primary">Create channel</button>
+</div>

@@ -4,6 +4,7 @@ export default class Channel {
     description: string;
     created: null;
     modified: null;
+    locked: boolean;
 
     public constructor(init ?: Partial<Channel>) {
         Object.assign(this, init);
