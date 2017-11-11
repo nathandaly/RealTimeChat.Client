@@ -27,6 +27,7 @@ export class SidebarMessagesComponent implements OnInit {
 
       const message = new Message({
         user: new User({
+          id: i,
           username: randomName,
           name: randomName,
           status: statusArray[Math.floor(Math.random() * statusArray.length)],

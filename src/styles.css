@@ -146,15 +146,15 @@ body {
    */
    
   .icon-ONLINE {
-    color: rgb(255, 142, 200);
+    color: #14DCA0;
   }
 
   .icon-OFFLINE {
-    color: black;
+    color: #646464;
   }
 
   .icon-AWAY {
-    color: orange;
+    color: #dca014;
   }
 
   i.fa.fa-plus-square-o {

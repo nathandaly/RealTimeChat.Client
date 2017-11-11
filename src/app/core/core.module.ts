@@ -8,7 +8,6 @@ import { NgModule } from '@angular/core';
   ],
   declarations: [],
   providers: [
-    MessageService
   ]
 })
 export class CoreModule { }

@@ -35,7 +35,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
       users.push({
         id: i,
-        username: randomName,
+        username: randomName.replace(/ /g, '').toLowerCase(),
         name: randomName,
         status: statusArray[Math.floor(Math.random() * statusArray.length)],
         created: Date.now(),
@@ -59,7 +59,7 @@ export class InMemoryDataService implements InMemoryDbService {
       description: 'This channel is for ' + val + ' purposes',
       created: Date.now(),
       modified: Date.now(),
-      private: Math.random() >= 0.5
+      locked: Math.random() >= 0.5
     }));
 
     return channels;

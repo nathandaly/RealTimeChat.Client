@@ -8,9 +8,11 @@ import { GlobalErrorHandlerService } from './core/_shared/global-error-handler.s
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
+import { MessageService } from './core/_shared/message.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgModule } from '@angular/core';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { UserService } from './core/_shared/user.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
   providers: [
     InMemoryDataService,
     ChannelService,
+    MessageService,
+    UserService,
     GlobalErrorHandlerService
   ],
   bootstrap: [AppComponent]

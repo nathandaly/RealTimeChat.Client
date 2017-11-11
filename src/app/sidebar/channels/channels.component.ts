@@ -44,4 +44,6 @@ export class SidebarChannelsComponent implements OnInit {
         this.channels.push(channel);
       });
   }
+
+  get diagnostic() { return JSON.stringify(this.channels); }
 }

@@ -1,6 +1,8 @@
 import { ChannelFormComponent } from './channels/channel-form.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MessageFormComponent } from './messages/message-form.component';
+import { Ng2CompleterModule } from 'ng2-completer';
 import { NgModule } from '@angular/core';
 import { SidebarChannelsComponent } from './channels/channels.component';
 import { SidebarComponent } from './sidebar.component';
@@ -9,7 +11,8 @@ import { SidebarMessagesComponent } from './messages/messages.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    Ng2CompleterModule
   ],
   exports: [
     SidebarComponent
@@ -18,7 +21,9 @@ import { SidebarMessagesComponent } from './messages/messages.component';
     SidebarComponent,
     SidebarChannelsComponent,
     SidebarMessagesComponent,
-    ChannelFormComponent
+    ChannelFormComponent,
+    MessageFormComponent,
+
   ]
 })
 export class SidebarModule { }

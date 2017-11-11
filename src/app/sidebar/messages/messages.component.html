@@ -7,26 +7,12 @@
   <ul class="nav nav-sidebar">
     <li *ngFor="let activeDialog of messages">
       <a href="">
-        <i class="fa {{ activeDialog.user.status === 'OFFLINE' ? 'fa-circle-thin' : activeDialog.user.status === 'AWAY' ? 'fa-clock-o' : 'fa-circle' }} icon-{{activeDialog.user.status}}" aria-hidden="true"></i>
-        {{ activeDialog.user.username }}
+        <i class="fa {{ activeDialog.user.status === 'OFFLINE' ? 'fa-circle-thin' : 'fa-circle' }} icon-{{activeDialog.user.status}}" aria-hidden="true" style="font-size: 14px;"></i> {{ activeDialog.user.username }}
       </a>
     </li>
   </ul>
 
 <!-- Direct message modal -->
 <ng-template #template>
-    <div class="modal-header">
-      <h4 class="modal-title pull-left">Direct message</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="recipient-name" class="control-label">Recipient username:</label>
-          <input type="text" class="form-control" id="recipient-name">
-        </div>
-      </form>
-    </div>
+    <app-message-form-modal></app-message-form-modal>
 </ng-template>

@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Direct message</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient</label>
+            <ng2-completer
+                [(ngModel)]="user"
+                [ngModelOptions]="{standalone: true}"
+                [datasource]="dataService"
+                [minSearchLength]="3"
+                [placeholder]="'search users...'"
+                [textSearching]="'Searching...'"
+                [inputClass]="['form-control']"
+                [inputClass]="'recipient-name'"
+            >
+            </ng2-completer>
+        </div>
+    </form>
+
+    <div *ngFor="let user of users">
+        <h4>{{user?.name}} | {{ user?.username }}</h4>
+    </div>
+
+    <div *ngIf="users?.length < 1">
+        <hr>
+        <p>
+            No results found :(
+        </p>
+    </div>
+</div>
