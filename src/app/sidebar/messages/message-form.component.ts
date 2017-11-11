@@ -30,7 +30,7 @@ export class MessageFormComponent implements OnInit {
         this.users = users;
         this.dataService = this.completerService.local(this.users, 'username, name', 'name');
         this.dataService.subscribe(search => search.map(item => {
-
+         // Filter the user list to the users that are returned from the search?
         }));
       }
     });
