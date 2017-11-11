@@ -22,8 +22,11 @@
         </div>
     </form>
 
-    <div *ngFor="let user of users">
-        <h4>{{user?.name}} | {{ user?.username }}</h4>
+    <div class="list-group">
+        <a class="list-group-item" *ngFor="let user of users">
+          <h4 class="list-group-item-heading">{{user?.name}} | {{ user?.username }}</h4>
+          <!--<p class="list-group-item-text">...</p> -->
+        </a>
     </div>
 
     <div *ngIf="users?.length < 1">

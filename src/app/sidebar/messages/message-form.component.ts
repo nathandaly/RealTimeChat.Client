@@ -29,6 +29,9 @@ export class MessageFormComponent implements OnInit {
       if (users.length) {
         this.users = users;
         this.dataService = this.completerService.local(this.users, 'username, name', 'name');
+        this.dataService.subscribe(search => search.map(item => {
+
+        }));
       }
     });
   }
